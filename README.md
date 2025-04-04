@@ -1,7 +1,6 @@
 # ThoughtCatcher... *"I'll still forget"* 💭 
 
 A backend service that lets you store and manage your thoughts.  
-Built with ASP.NET Core and PostgreSQL.
 
 ## ✨ Features
 

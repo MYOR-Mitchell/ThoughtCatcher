@@ -33,14 +33,14 @@ namespace ThoughtCatcher.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateThought(Thought thought)
+        public async Task<ActionResult> CreateThought([FromBody] Thought thought)
         {
             await _repository.AddAsync(thought);
             return CreatedAtAction(nameof(GetThoughtById), new { id = thought.Id }, thought);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateThought(int id, Thought thought)
+        public async Task<ActionResult> UpdateThought(int id, [FromBody] Thought thought)
         {
             if(id != thought.Id)
                 return BadRequest();
@@ -62,6 +62,12 @@ namespace ThoughtCatcher.API.Controllers
 
             await _repository.DeleteAsync(id);
             return NoContent();
+        }
+
+        [HttpGet("ping")]
+        public IActionResult Ping()
+        {
+            return Ok("pong");
         }
     }
 }

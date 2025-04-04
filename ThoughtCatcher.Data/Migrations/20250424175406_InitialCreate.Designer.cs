@@ -12,7 +12,7 @@ using ThoughtCatcher.Data;
 namespace ThoughtCatcher.Data.Migrations
 {
     [DbContext(typeof(ThoughtCatcherDbContext))]
-    [Migration("20250404192809_InitialCreate")]
+    [Migration("20250424175406_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace ThoughtCatcher.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.3")
+                .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);

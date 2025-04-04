@@ -33,7 +33,13 @@ namespace ThoughtCatcher.Data.Repository
 
         public async Task UpdateAsync(Thought thought)
         {
-            _context.ThoughtCatcher.Update(thought);
+            var existingThought = await _context.ThoughtCatcher.FindAsync(thought.Id);
+            if(existingThought == null)
+                return;
+
+            existingThought.Title = thought.Title;
+            existingThought.Body = thought.Body;
+
             await _context.SaveChangesAsync();
         }
 
